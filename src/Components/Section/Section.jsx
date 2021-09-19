@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SectionS, Title } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    <section>
-      <h2>{title}</h2>
+    <SectionS>
+      <Title>{title}</Title>
       {children}
-    </section>
+    </SectionS>
   );
 };
 
 export default Section;
 
 Section.protoTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  // не знаю як прописати children:(
 };
