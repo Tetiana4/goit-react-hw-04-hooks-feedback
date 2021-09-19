@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   margin-bottom: 30px;
 
-  color: #eee2df;
+  color: #452c27;
   text-transform: uppercase;
   font-size: 20px;
 `;

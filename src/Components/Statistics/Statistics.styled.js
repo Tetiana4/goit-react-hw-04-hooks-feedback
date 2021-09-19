@@ -5,10 +5,10 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 50px;
+  margin: 0 0 50px;
   text-transform: uppercase;
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
 
-  color: #452c27;
+  color: #ffe4e1;
 `;
