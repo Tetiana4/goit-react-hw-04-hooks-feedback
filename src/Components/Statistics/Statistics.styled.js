@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const Container = styled.ul`
   text-align: center;
 `;
 
-export const Title = styled.h2`
-  margin: 0 0 50px;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 30px;
-
-  color: #ffe4e1;
+export const Item = styled.li`
+  margin-top: 20px;
+  list-style: none;
+  color: #cea9a1;
+  font-size: 24px;
 `;

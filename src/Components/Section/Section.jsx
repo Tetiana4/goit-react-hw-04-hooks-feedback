@@ -15,5 +15,5 @@ export default Section;
 
 Section.protoTypes = {
   title: PropTypes.string,
-  // не знаю як прописати children:(
+  children: PropTypes.node,
 };

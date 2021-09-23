@@ -4,57 +4,40 @@ import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Notification from '../Notification/Notification';
 import Section from '../Section/Section';
 import Statistics from '../Statistics/Statistics';
-import { Title } from '../Statistics/Statistics.styled';
 
 export default function App() {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [state, setState] = useState({ good: 0, neutral: 0, bad: 0 });
 
   const countTotalFeedback = () => {
-    return good + neutral + bad;
+    return Object.values(state).reduce((acc, value) => acc + value, 0);
   };
 
   const countPositiveFeedbackPercentage = () => {
-    return Math.round((good * 100) / countTotalFeedback());
+    return Math.round((state.good * 100) / countTotalFeedback());
   };
 
   const leaveFeedback = value => {
-    switch (value) {
-      case 'good':
-        setGood(s => s + 1);
-        break;
-      case 'neutral':
-        setNeutral(s => s + 1);
-        break;
-      case 'bad':
-        setBad(s => s + 1);
-        break;
-      default:
-        return;
-    }
+    setState(prevState => ({ ...prevState, [value]: prevState[value] + 1 }));
   };
+  const options = Object.keys(state);
+  const isShowStatistics = countTotalFeedback() !== 0;
+
   return (
     <>
-      <FeedbackOptions
-        options={{ good, neutral, bad }}
-        onHandleButton={leaveFeedback}
-      />
+      <FeedbackOptions options={options} onHandleButton={leaveFeedback} />
 
-      {countTotalFeedback() !== 0 ? (
-        <Section>
-          <Title>Statistics:</Title>
+      {isShowStatistics && (
+        <Section title={Statistics}>
           <Statistics
-            onGood={good}
-            onNeutral={neutral}
-            onBad={bad}
+            onGood={state.good}
+            onNeutral={state.neutral}
+            onBad={state.bad}
             onTotal={countTotalFeedback()}
             onPercentage={countPositiveFeedbackPercentage()}
           />
         </Section>
-      ) : (
-        <Notification message="No feedback given" />
       )}
+      {!isShowStatistics && <Notification message="No feedback given" />}
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function FeedbackOptions({ options, onHandleButton }) {
   return (
     <Container>
       <Title>Please leave feedback</Title>
-      {Object.keys(options).map(option => (
+      {options.map(option => (
         <List key={option}>
           <Button type="button" onClick={() => onHandleButton(option)}>
             {option}

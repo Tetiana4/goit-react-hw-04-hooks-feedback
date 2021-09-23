@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from './Statistics.styled';
+import { Container, Item } from './Statistics.styled';
 
 const Statistics = ({ onGood, onNeutral, onBad, onTotal, onPercentage }) => (
   <Container>
-    <p>Good: {onGood}</p>
-    <p>Neutral: {onNeutral}</p>
-    <p>Bad: {onBad}</p>
-    <p>Total: {onTotal}</p>
-    <p>Positive feedback: {onPercentage}%</p>
+    <Item>Good: {onGood}</Item>
+    <Item>Neutral: {onNeutral}</Item>
+    <Item>Bad: {onBad}</Item>
+    <Item>Total: {onTotal}</Item>
+    <Item>Positive feedback: {onPercentage}%</Item>
   </Container>
 );
 

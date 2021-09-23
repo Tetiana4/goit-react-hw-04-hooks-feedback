@@ -23,13 +23,14 @@ export const Button = styled.button`
   color: #c69a91;
 
   border-radius: 10px;
-  border: none;
+  border: 5px;
   cursor: pointer;
   transition: all 0.25s linear 0s;
-  &:hover,
-  &:focus {
-    border: 1px solid #cea9a1;
-    transform: scale(1.1);
+
+  &:hover {
+    background: #cea9a1;
+    color: #452c27;
+    box-shadow: inset 0 0 0 1px #452c27;
   }
 `;
 
